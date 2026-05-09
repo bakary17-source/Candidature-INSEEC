@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakary-Maciré DRAMÉ — Candidature INSEEC Master Marketing IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --accent: #e8ff4a;
+    --accent-dim: rgba(232,255,74,0.12);
+    --text: #f0ede6;
+    --muted: #888;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 4rem;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--font-display); font-weight: 800; font-size: 1rem; letter-spacing: 0.05em; }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    font-size: 0.8rem; font-family: var(--font-display); font-weight: 700;
+    background: var(--accent); color: #0d0d0d;
+    padding: 0.5rem 1.25rem; border-radius: 2px;
+    letter-spacing: 0.05em; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; color: #0d0d0d; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 4rem 5rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent);
+    font-family: var(--font-display); font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero-sub {
+    max-width: 560px;
+    font-size: 1.05rem; color: var(--muted); font-weight: 300;
+    margin-bottom: 3rem;
+  }
+  .hero-meta {
+    display: flex; gap: 3rem; align-items: center;
+    font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em;
+  }
+  .hero-meta span { color: var(--text); font-weight: 500; }
+  .hero-grid-line {
+    position: absolute; right: 4rem; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .hero-grid-line::before {
+    content: ''; position: absolute; top: 50%; transform: translateY(-50%);
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); left: -2px;
+  }
+  .scroll-hint {
+    position: absolute; bottom: 2rem; right: 4rem;
+    font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 4rem; border-bottom: 1px solid var(--border); }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.2em; color: var(--muted);
+    font-family: var(--font-display); font-weight: 700;
+    margin-bottom: 3rem; text-transform: uppercase;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  h2 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  h2 em { color: var(--accent); font-style: normal; }
+
+  /* STATS */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--border); margin-top: 3rem;
+    border: 1px solid var(--border);
+  }
+  .stat {
+    background: var(--surface); padding: 2rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 2.75rem; color: var(--accent); line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
+
+  /* EXPERIENCES */
+  .xp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+  .xp-card {
+    background: var(--surface); padding: 2rem;
+    transition: background 0.2s;
+  }
+  .xp-card:hover { background: #1c1c1c; }
+  .xp-date { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 0.75rem; font-family: var(--font-display); }
+  .xp-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.1rem; margin-bottom: 0.25rem;
+  }
+  .xp-company { font-size: 0.85rem; color: var(--accent); margin-bottom: 1rem; }
+  .xp-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .xp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+  .tag {
+    font-size: 0.7rem; font-family: var(--font-display); font-weight: 700;
+    background: var(--accent-dim); color: var(--accent);
+    padding: 0.25rem 0.6rem; border-radius: 2px; letter-spacing: 0.05em;
+  }
+
+  /* SKILLS */
+  .skills-row {
+    display: flex; gap: 3rem; margin-top: 3rem;
+  }
+  .skills-col { flex: 1; }
+  .skills-col h3 {
+    font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.25rem;
+  }
+  .skill-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-bar-wrap { width: 80px; height: 2px; background: var(--border); }
+  .skill-bar { height: 100%; background: var(--accent); }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .why-text { font-size: 1.05rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+  .why-text strong { color: var(--text); font-weight: 500; }
+  .why-points { display: flex; flex-direction: column; gap: 1rem; }
+  .why-point {
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent);
+  }
+  .why-point-title { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; }
+  .why-point-text { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  /* CONTACT */
+  .contact-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 2rem;
+  }
+  .contact-cta h2 { margin-bottom: 0.5rem; }
+  .contact-cta p { color: var(--muted); font-size: 0.95rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; text-align: right; }
+  .contact-link { font-size: 0.9rem; color: var(--muted); transition: color 0.2s; }
+  .contact-link:hover { color: var(--text); }
+  .contact-link span { color: var(--accent); margin-right: 0.5rem; }
+  .btn-main {
+    display: inline-block; margin-top: 1.5rem;
+    font-family: var(--font-display); font-weight: 700; font-size: 0.85rem;
+    background: var(--accent); color: #0d0d0d;
+    padding: 0.85rem 2rem; letter-spacing: 0.05em; border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+  .btn-main:hover { opacity: 0.85; color: #0d0d0d; }
+
+  /* FOOTER */
+  footer {
+    padding: 1.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    section { padding: 3rem 1.5rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .xp-grid { grid-template-columns: 1fr; }
+    .skills-row { flex-direction: column; gap: 1.5rem; }
+    .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-inner { flex-direction: column; }
+    .contact-links { text-align: left; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .hero-grid-line { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">B.M. DRAMÉ</div>
+  <div class="nav-links">
+    <a href="#profil">Profil</a>
+    <a href="#experiences">Expériences</a>
+    <a href="#competences">Compétences</a>
+    <a href="#pourquoi">Pourquoi l'INSEEC</a>
+  </div>
+  <a href="mailto:dramebakary17@gmail.com" class="nav-cta">Me contacter</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid-line"></div>
+  <div class="hero-label">Candidature Master Marketing & IA — INSEEC 2026</div>
+  <h1>Bakary-Maciré<br><em>DRAMÉ</em></h1>
+  <p class="hero-sub">Growth Marketer, cofondateur et animateur de communauté. Je cherche à maîtriser l'IA pour faire du marketing autrement.</p>
+  <div class="hero-meta">
+    Paris, 75017 &nbsp;·&nbsp; <span>Bachelor Marketing Digital (Growth)</span> &nbsp;·&nbsp; <span>Rocket School</span>
+  </div>
+  <div class="scroll-hint">DÉFILER</div>
+</div>
+
+<section id="profil">
+  <div class="section-label">01 — Profil</div>
+  <h2>Ces dernières années,<br>j'ai surtout appris à <em>faire.</em></h2>
+  <p style="max-width:680px; color: var(--muted); font-size: 1.05rem; font-weight: 300; line-height: 1.8;">
+    Tester, mesurer, optimiser. En alternance chez TOMO Clothing, j'ai géré des campagnes d'acquisition, piloté le CRM sur Klaviyo et contribué à l'optimisation SEO du site. En parallèle, j'ai cofondé une conciergerie et lancé un pôle dédié aux jeunes entrepreneurs. Aujourd'hui, je mesure les limites de ce que je sais faire. C'est exactement ce qui me pousse à vouloir aller plus loin.
+  </p>
+
+  <div class="stats-grid fade-in">
+    <div class="stat">
+      <div class="stat-num" data-target="1">1</div>
+      <div class="stat-label">Alternance Growth Marketing</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="2">2</div>
+      <div class="stat-label">Projets entrepreneuriaux actifs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="3">3</div>
+      <div class="stat-label">Ans de terrain en marketing digital</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">IA</div>
+      <div class="stat-label">Certifié Google AI Essentials 2025</div>
+    </div>
+  </div>
+</section>
+
+<section id="experiences">
+  <div class="section-label">02 — Expériences</div>
+  <h2>Ce que j'ai <em>construit</em><br>jusqu'ici</h2>
+
+  <div class="xp-grid fade-in">
+    <div class="xp-card">
+      <div class="xp-date">2025 — Fév. 2026</div>
+      <div class="xp-title">Apprenti Growth Marketer</div>
+      <div class="xp-company">TOMO Clothing</div>
+      <div class="xp-desc">Gestion des campagnes Meta Ads et SEA, optimisation SEO Shopify, élaboration du planning éditorial, rédaction de newsletters et mise en place d'automatisations CRM via Klaviyo. Analyse des KPIs et suivi des performances produits.</div>
+      <div class="xp-tags">
+        <span class="tag">Meta Ads</span>
+        <span class="tag">Klaviyo</span>
+        <span class="tag">SEO</span>
+        <span class="tag">CRM</span>
+        <span class="tag">Shopify</span>
+      </div>
+    </div>
+
+    <div class="xp-card">
+      <div class="xp-date">2024 — Aujourd'hui</div>
+      <div class="xp-title">Cofondateur</div>
+      <div class="xp-company">LibertéClé Conciergerie</div>
+      <div class="xp-desc">Création et gestion d'une conciergerie en location courte durée. Optimisation des annonces Airbnb, pricing dynamique, pilotage opérationnel et gestion de la relation client.</div>
+      <div class="xp-tags">
+        <span class="tag">SEO Airbnb</span>
+        <span class="tag">Pricing</span>
+        <span class="tag">Analyse</span>
+        <span class="tag">Gestion</span>
+      </div>
+    </div>
+
+    <div class="xp-card">
+      <div class="xp-date">Fév. 2026 — Aujourd'hui</div>
+      <div class="xp-title">Responsable Section Junior</div>
+      <div class="xp-company">Club des Entrepreneurs du 17e</div>
+      <div class="xp-desc">Lancement et structuration d'un pôle dédié aux jeunes porteurs de projets. Organisation d'événements, animation de communauté et mise en place d'un programme de mentoring avec des entrepreneurs expérimentés.</div>
+      <div class="xp-tags">
+        <span class="tag">Community</span>
+        <span class="tag">Events</span>
+        <span class="tag">Mentoring</span>
+      </div>
+    </div>
+
+    <div class="xp-card">
+      <div class="xp-date">2024 — Aujourd'hui</div>
+      <div class="xp-title">Bénévole</div>
+      <div class="xp-company">Firdaous Charity</div>
+      <div class="xp-desc">Contribution à l'engagement des bénévoles, participation aux actions solidaires et création de contenus de communication pour l'association.</div>
+      <div class="xp-tags">
+        <span class="tag">Contenus</span>
+        <span class="tag">Engagement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="section-label">03 — Compétences</div>
+  <h2>Les outils,<br>et ce qu'on en <em>fait.</em></h2>
+
+  <div class="skills-row fade-in">
+    <div class="skills-col">
+      <h3>Marketing Digital</h3>
+      <div class="skill-item">Email Marketing & CRM (Klaviyo) <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+      <div class="skill-item">SEO & Optimisation (CRO) <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+      <div class="skill-item">Acquisition (Meta Ads, SEA) <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      <div class="skill-item">Création de contenus <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+      <div class="skill-item">Scraping & Data <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+    </div>
+    <div class="skills-col">
+      <h3>Savoir-être</h3>
+      <div class="skill-item">Prise d'initiative & gestion de projet <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+      <div class="skill-item">Communication & aisance relationnelle <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
+      <div class="skill-item">Esprit analytique orienté résultats <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+      <div class="skill-item">Adaptabilité & gestion des imprévus <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="pourquoi">
+  <div class="section-label">04 — Pourquoi l'INSEEC</div>
+  <h2>Maîtriser les outils,<br>c'est une bonne <em>base.</em></h2>
+
+  <div class="why-grid fade-in">
+    <div class="why-text">
+      Comprendre comment l'IA peut <strong>transformer une stratégie marketing dans sa globalité</strong>, automatiser intelligemment, personnaliser à grande échelle et prendre de meilleures décisions grâce aux données : c'est ce que je veux développer maintenant. Mon certificat Google AI Essentials obtenu en 2025 n'est qu'un point de départ. Ce master représente l'étape suivante, et l'INSEEC, le cadre idéal pour l'accomplir.
+    </div>
+    <div class="why-points">
+      <div class="why-point">
+        <div class="why-point-title">IA appliquée au marketing</div>
+        <div class="why-point-text">Des modèles prédictifs à la personnalisation à grande échelle, je veux aller au-delà des outils pour comprendre la logique sous-jacente.</div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-title">Une pédagogie orientée pratique</div>
+        <div class="why-point-text">J'apprends en faisant. Un cursus ancré dans les cas concrets et les problématiques réelles correspond parfaitement à ma façon de travailler.</div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-title">Des débouchés en phase avec mes ambitions</div>
+        <div class="why-point-text">Growth, CRM, data marketing : les métiers auxquels ce master prépare sont exactement ceux que je vise à long terme.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="contact-inner">
+    <div class="contact-cta">
+      <div class="section-label" style="margin-bottom: 1rem;">05 — Contact</div>
+      <h2>Parlons-en<br>lors d'un <em>entretien.</em></h2>
+      <p>Disponible pour échanger sur ma candidature et mon projet professionnel.</p>
+      <a href="mailto:dramebakary17@gmail.com" class="btn-main">Envoyer un email</a>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:dramebakary17@gmail.com" class="contact-link"><span>✉</span> dramebakary17@gmail.com</a>
+      <a href="tel:0662759771" class="contact-link"><span>☏</span> 06 62 75 97 71</a>
+      <span class="contact-link" style="cursor:default;"><span>📍</span> Paris, 75017</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Bakary-Maciré DRAMÉ</span>
+  <span>Candidature Master Marketing & Intelligence Artificielle — INSEEC</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
